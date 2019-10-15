@@ -1,0 +1,7 @@
+1.在使用redis的时候一定要记得在jedisclient中关闭连接，使用连接池获取链接后要记得释放，否则dubbo会出现断开服务的现象，不易察觉！！
+
+2.在使用activemq和spring的时候，前者会依赖4.1.9版本的spring 所以需要将该项目的spring手动切换到4.1.9
+
+3.在使用yum的时候如果报错类似找不到镜像源，则是DNS未配置，可以试试Ping114.114.114.114若可以则ping www.baidu.com如不行则说明是dns未配置，在/etc/resolve中配置
+
+4.在使用mybatis时，别的项目中使用mapper访问数据库进行crud操作，如本项目中想要用，则需要扫描添加到spring容器中的包名为别的项目的包名，包名是独立的不跟随项目，也即是依赖了带有Mybatis的项目，则该项目在本项目中使用体现在包名上，所以扫描的是依赖过来的包名，如：taotao-sso-service工程中依赖了taotao-manager-dao工程，dao工程中有com.taotao.mapper包中可以访问数据库做curd，则在taotao-sso-service工程中需要扫描com.taotao.mapper包！但是只能依赖jar包，war包则不行！
