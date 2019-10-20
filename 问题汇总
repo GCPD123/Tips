@@ -5,3 +5,5 @@
 3.在使用yum的时候如果报错类似找不到镜像源，则是DNS未配置，可以试试Ping114.114.114.114若可以则ping www.baidu.com如不行则说明是dns未配置，在/etc/resolve中配置
 
 4.在使用mybatis时，别的项目中使用mapper访问数据库进行crud操作，如本项目中想要用，则需要扫描添加到spring容器中的包名为别的项目的包名，包名是独立的不跟随项目，也即是依赖了带有Mybatis的项目，则该项目在本项目中使用体现在包名上，所以扫描的是依赖过来的包名，如：taotao-sso-service工程中依赖了taotao-manager-dao工程，dao工程中有com.taotao.mapper包中可以访问数据库做curd，则在taotao-sso-service工程中需要扫描com.taotao.mapper包！但是只能依赖jar包，war包则不行！
+
+# 1
